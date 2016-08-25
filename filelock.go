@@ -19,7 +19,7 @@ func (l *Locker) Open() (*os.File, error) {
 	if err != nil {
 		panic(err)
 	}
-	const flags = os.O_RDWR | os.O_CREATE | syscall.LOCK_EX
+	const flags = os.O_RDWR | os.O_CREATE
 	file, err := os.OpenFile(l.Path, flags, 0600)
 	if err != nil {
 		return nil, err
