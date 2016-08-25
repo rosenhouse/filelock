@@ -13,7 +13,7 @@ func TestFilelock(t *testing.T) {
 	RunSpecs(t, "Filelock Suite")
 }
 
-const demoPackagePath = "github.com/rosenhouse/filelock/demo"
+const demoPackagePath = "github.com/rosenhouse/filelock/filelock-demo"
 
 var pathToBinary string
 
