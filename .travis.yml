@@ -1,7 +1,9 @@
 language: go
 
 go:
-  - stable
+  - 1.6
+  - 1.7
+  - tip
 
 install:
   - go get github.com/onsi/ginkgo
