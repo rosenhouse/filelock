@@ -5,6 +5,7 @@ import (
 	"io"
 	"io/ioutil"
 	"os"
+	"strings"
 	"time"
 
 	"github.com/rosenhouse/filelock"
@@ -18,7 +19,7 @@ func main() {
 }
 
 func mainWithError() error {
-	if len(os.Args) < 2 {
+	if len(os.Args) < 2 || strings.HasPrefix(os.Args[1], "-") {
 		return fmt.Errorf("usage: %s <file_to_lock>", os.Args[0])
 	}
 
@@ -43,7 +44,7 @@ func mainWithError() error {
 
 	os.Stdout.Write(contents)
 
-	fmt.Fprintf(os.Stderr, "\nEnter new file contents and then Ctrl+D (EOF) to release the lock\n")
+	fmt.Fprintf(os.Stderr, "\nEnter new file contents and then Enter + Ctrl+D (EOF) to release the lock\n")
 
 	_, err = file.Seek(0, 0)
 	if err != nil {

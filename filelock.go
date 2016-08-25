@@ -10,6 +10,9 @@ type Locker struct {
 	Path string
 }
 
+// Open will open and lock a file.  It blocks until the lock is acquired.
+// If the file does not yet exist, it creates the file, and any missing
+// directories above it in the path.  To release the lock, Close the file.
 func (l *Locker) Open() (*os.File, error) {
 	dir := filepath.Dir(l.Path)
 	err := os.MkdirAll(dir, 0700)

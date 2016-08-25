@@ -11,7 +11,6 @@ go get github.com/rosenhouse/filelock
 ## Usage
 - See the [demo code](filelock-demo/main.go)
 
-
 ## Simple example
 
 0. Install the demo binary
